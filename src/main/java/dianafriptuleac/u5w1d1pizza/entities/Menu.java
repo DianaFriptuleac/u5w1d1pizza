@@ -1,5 +1,6 @@
 package dianafriptuleac.u5w1d1pizza.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Menu {
@@ -8,19 +9,25 @@ public class Menu {
     private List<Bevande> allBevande;
 
     public Menu(List<Pizze> allPizze, List<Toppings> allToppings, List<Bevande> allBevande) {
-        this.allPizze = allPizze;
-        this.allToppings = allToppings;
-        this.allBevande = allBevande;
+        this.allPizze = new ArrayList<>(allPizze); // Usa ArrayList
+        this.allToppings = new ArrayList<>(allToppings);
+        this.allBevande = new ArrayList<>(allBevande);
     }
 
     public void stampaMenu() {
-        System.out.println("Le nostre pizze: ");
+        System.out.println("Le nostre pizze:");
         allPizze.forEach(pizza -> System.out.println(pizza));
 
-        System.out.println("Condimenti: ");
+        System.out.println("\nCalorie delle pizze:");
+        allPizze.forEach(pizza -> System.out.println(pizza.getCalorie()));
+
+        System.out.println("\nPrezzo delle pizze:");
+        allPizze.forEach(pizza -> System.out.println(pizza.getPrezzo() + "€"));
+
+        System.out.println("\nCondimenti disponibili:");
         allToppings.forEach(topping -> System.out.println(topping));
 
-        System.out.println("Bevande: ");
+        System.out.println("\nBevande:");
         allBevande.forEach(bevanda -> System.out.println(bevanda));
     }
 }

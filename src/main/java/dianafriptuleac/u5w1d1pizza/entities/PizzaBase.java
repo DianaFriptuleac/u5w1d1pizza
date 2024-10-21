@@ -5,14 +5,23 @@ import lombok.Setter;
 
 @Getter
 @Setter
-
 public abstract class PizzaBase extends GenericClass {
     protected String pomodoro;
     protected String mozzarella;
 
-    public PizzaBase(String nome, double prezzo, int calorie, String pomodoro, String mozzarella) {
+    public PizzaBase(String nome, double prezzo, int calorie) {
         super(nome, prezzo, calorie);
-        this.pomodoro = pomodoro;
-        this.mozzarella = mozzarella;
+        this.pomodoro = "Pomodoro";
+        this.mozzarella = "Mozzarella";
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: '" + nome + '\'' +
+                ", Prezzo: " + prezzo +
+                "€ , Calorie: " + calorie +
+                ", Condimenti: '" + pomodoro + '\'' +
+                ", '" + mozzarella + '\'';
     }
 }
+
